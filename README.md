@@ -2,6 +2,9 @@
 A tool for mappers to gather and visualize some location-based statistics on the map.
 Have people or bots play a deathmatch game and afterwards you can visualize different stats around the map.
 
+This is only compatible with Quake Enhanced.
+
+<img src='screenshots/stats_movement.jpg' width='512px'>
 
 Currently it can gather the following statistics:
 * Movement
