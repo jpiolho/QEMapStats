@@ -83,6 +83,8 @@ void(entity targ, entity attacker) Killed =
 		}
 	}
 
+	INCREASE_STATISTIC(Deaths,self.origin);
+
 	ClientObituary(self, attacker);
 
 	self.takedamage = DAMAGE_NO;

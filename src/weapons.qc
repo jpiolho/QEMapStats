@@ -877,6 +877,8 @@ void() W_Attack =
 	if (!W_CheckNoAmmo ())
 		return;
 
+	INCREASE_STATISTIC(Attacks,self.origin);
+
 	makevectors	(self.v_angle);			// calculate forward angle for velocity
 	self.show_hostile = time + 1;	// wake monsters up
 
@@ -1235,6 +1237,10 @@ void() ImpulseCommands =
 		ServerflagsCommand ();
 	if (self.impulse == 12)
 		CycleWeaponReverseCommand ();
+
+	if(self.impulse == 80) {
+		Stats_HandleImpulse();
+	}
 
 	if (self.impulse == 255)
 		QuadCheat ();

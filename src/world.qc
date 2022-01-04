@@ -339,6 +339,8 @@ void() worldspawn =
 
 	// 63 testing
 	lightstyle(63, "a");
+
+	InitializeStatistics();
 };
 
 void() StartFrame =

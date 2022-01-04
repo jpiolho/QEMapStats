@@ -781,6 +781,8 @@ void() PlayerJump =
 // player jumping sound
 	sound (self, CHAN_BODY, "player/plyrjmp8.wav", 1, ATTN_NORM);
 	self.velocity_z = self.velocity_z + 270;
+
+	INCREASE_STATISTIC(Jumps,self.origin);
 };
 
 
@@ -1128,6 +1130,13 @@ void() PlayerPostThink =
 	if (self.deadflag)
 		return;
 
+	if(self == mapStats.host && mapStats.statsRender)
+		Stats_Render(mapStats.statsRender);
+
+	if(self != mapStats.host && time > self.state) {
+		INCREASE_STATISTIC(Movement,self.origin);
+		self.state = time + 0.5;
+	}
 // do weapon stuff
 
 	W_WeaponFrame ();
@@ -1165,6 +1174,9 @@ called when a player connects to a server
 */
 void() ClientConnect =
 {
+	if(!mapStats.host)
+		mapStats.host = self;
+
 	bprint (self.netname);
 	bprint (" entered the game\n");
 

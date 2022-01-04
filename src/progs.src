@@ -3,6 +3,12 @@
 defs.qc
 subs.qc
 maps.qc
+
+math.qc
+statistics_def.qc
+statistics.qc
+statistics_late.qc
+
 fight.qc
 ai.qc
 combat.qc
@@ -34,3 +40,4 @@ fish.qc			// registered
 shalrath.qc		// registered
 enforcer.qc		// registered
 oldone.qc		// registered
+
